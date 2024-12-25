@@ -15,6 +15,18 @@ function getComputerChoice() {
 console.log(getComputerChoice());
 
 //2. Prompt user choice then store it into a variable
+// Create function getHumanChoice () {
+//  let choice = input from user;
+//  return choice;}
+
+function getHumanChoice() {
+    let choice = prompt("What do you choose?", "Rock or Paper or Scissors");
+    console.log(choice);
+    return choice;
+}
+getHumanChoice();
+
+
 //3. Compare the two choice variables to determine the winner
 //4. The winner gets a point stored into a counter
 //5. Run the game for 5 rounds and announce the overall winner. 
