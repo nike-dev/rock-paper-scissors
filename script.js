@@ -1,7 +1,6 @@
 //1. Get Computerchoice 
 function getComputerChoice() {
     let choice = Math.random() * 10;
-    console.log(choice);
     if (choice <= 3) {
         return "Rock";
     }
@@ -12,7 +11,6 @@ function getComputerChoice() {
         return "Scissor";
     }
 }
-console.log(getComputerChoice());
 
 //2. Prompt user choice then store it into a variable
 // Create function getHumanChoice () {
@@ -21,18 +19,53 @@ console.log(getComputerChoice());
 
 function getHumanChoice() {
     let choice = prompt("What do you choose?", "Rock or Paper or Scissors");
-    console.log(choice);
     return choice;
 }
-getHumanChoice();
+
+let humanScore = 0;
+let computerScore = 0;
 
 
 //3. Compare the two choice variables to determine the winner
+
+function playRound(humanChoice, computerChoice) {
+  
+    
+    if (humanChoice === computerChoice) {
+        console.log("Draw! The round will be replayed.")
+        playRound();
+    } if (humanChoice === "Rock" && computerChoice === "Paper") {
+        computerScore++;
+        console.log("You lose! Paper beats Rock.");
+    } if ((humanChoice === "Rock") && (computerChoice === "Scissor")) {
+        humanScore++;
+        console.log("You win! Rock beats Scissor.");
+    }else if ((humanChoice === "Paper") && (computerChoice === "Rock")) {
+        humanScore++; 
+        console.log("You win! Paper beats Rock.");
+    }else if ((humanChoice === "Paper") && (computerChoice === "Scissor")) {
+        computerScore++; 
+        console.log("You lose! Scissor beats Paper.");
+    }else if ((humanChoice === "Scissor") && (computerChoice === "Rock")) {
+        computerScore++; 
+        console.log("You lose! Rock beats Scissor.");
+    }else if ((humanChoice === "Scissor") && (computerChoice === "Paper")) {
+        humanScore++; 
+        console.log("You win! Scissor beats Paper.");
+    }
+}
+const humanSelection = getHumanChoice();
+console.log(`You chose ${humanSelection}.`);
+const computerSelection = getComputerChoice();
+console.log(`Computer chose ${computerSelection}.`);
+
+playRound(humanSelection, computerSelection);
+
 //4. The winner gets a point stored into a counter
 //5. Run the game for 5 rounds and announce the overall winner. 
 
 
 
 // Step 1: Get Computer choice
-// Function getComputerChoice() when executed outputs "rock", "paper" or "scissors".
 
+// Function getComputerChoice() when executed outputs "rock", "paper" or "scissors".
