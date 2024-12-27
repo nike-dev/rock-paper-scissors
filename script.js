@@ -29,11 +29,12 @@ let computerScore = 0;
 //3. Compare the two choice variables to determine the winner
 
 function playRound(humanChoice, computerChoice) {
-  
+  let firstLetter = humanChoice[0].toUpperCase();
+  let allOtherLetters = humanChoice.substr(1);
+  humanChoice = firstLetter + allOtherLetters;
     
     if (humanChoice === computerChoice) {
-        console.log("Draw! The round will be replayed.")
-        playRound();
+        console.log("Draw! The round will be replayed.") //Round should be replayed here.
     } if (humanChoice === "Rock" && computerChoice === "Paper") {
         computerScore++;
         console.log("You lose! Paper beats Rock.");
