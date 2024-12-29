@@ -12,7 +12,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let choice = prompt("What do you choose?");
+    let userInput = prompt("What do you choose?");
+    let choice = userInput.trim();
+    choice = choice[0].toUpperCase() + choice.substring(1).toLowerCase();
     return choice;
 }
 
@@ -21,9 +23,6 @@ function playGame() {
     let computerScore = 0;
 
     function playRound(humanChoice, computerChoice) {
-        let firstLetter = humanChoice[0].toUpperCase();
-        let allOtherLetters = humanChoice.substring(1);
-        humanChoice = firstLetter + allOtherLetters;
 
         if (humanChoice === computerChoice) {
             console.log("Draw! The round will be replayed.")
@@ -55,6 +54,8 @@ function playGame() {
         console.log(`You chose ${humanSelection[0].toUpperCase() + humanSelection.substring(1).toLowerCase()}.`);
         const computerSelection = getComputerChoice();
         console.log(`Computer chose ${computerSelection}.`);
+
+        
 
         playRound(humanSelection, computerSelection);
     }
