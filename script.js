@@ -26,10 +26,10 @@ function playGame() {
         humanChoice = firstLetter + allOtherLetters;
 
         if (humanChoice === computerChoice) {
-            console.log("Draw! The round will be replayed.") //Round should be replayed here.
+            console.log("Draw! The round will be replayed.")
         } else if (humanChoice === "Rock" && computerChoice === "Paper") {
             computerScore++;
-            console.log("You lose! Paper beats Rock.\n");
+            console.log("You lose! Paper beats Rock.");
         } else if ((humanChoice === "Rock") && (computerChoice === "Scissors")) {
             humanScore++;
             console.log("You win! Rock beats Scissors.");
