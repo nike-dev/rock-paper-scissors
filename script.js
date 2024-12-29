@@ -4,6 +4,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const startButton = document.getElementById("gamePlay");
+
 //Function to get Computer's choice
 function getComputerChoice() {
     let choice = Math.random() * 10;
@@ -73,7 +75,8 @@ function playGame() {
     declareWinner();
 }
 
-playGame(); //Executes the game
+//Executes the game when "game-start" button is clicked
+startButton.addEventListener("click", playGame); 
 
 
 
