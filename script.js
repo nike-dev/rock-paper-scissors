@@ -1,4 +1,3 @@
-//1. Get Computerchoice 
 function getComputerChoice() {
     let choice = Math.random() * 10;
     if (choice <= 3) {
@@ -8,21 +7,14 @@ function getComputerChoice() {
         return "Paper";
     }
     else {
-        return "Scissor";
+        return "Scissors";
     }
 }
-
-//2. Prompt user choice then store it into a variable
 
 function getHumanChoice() {
     let choice = prompt("What do you choose?");
     return choice;
 }
-
-//3. Defining score variables
-
-
-
 
 function playGame() {
     let humanScore = 0;
@@ -38,21 +30,21 @@ function playGame() {
         } else if (humanChoice === "Rock" && computerChoice === "Paper") {
             computerScore++;
             console.log("You lose! Paper beats Rock.\n");
-        } else if ((humanChoice === "Rock") && (computerChoice === "Scissor")) {
+        } else if ((humanChoice === "Rock") && (computerChoice === "Scissors")) {
             humanScore++;
-            console.log("You win! Rock beats Scissor.");
+            console.log("You win! Rock beats Scissors.");
         } else if ((humanChoice === "Paper") && (computerChoice === "Rock")) {
             humanScore++;
             console.log("You win! Paper beats Rock.");
-        } else if ((humanChoice === "Paper") && (computerChoice === "Scissor")) {
+        } else if ((humanChoice === "Paper") && (computerChoice === "Scissors")) {
             computerScore++;
-            console.log("You lose! Scissor beats Paper.");
-        } else if ((humanChoice === "Scissor") && (computerChoice === "Rock")) {
+            console.log("You lose! Scissors beats Paper.");
+        } else if ((humanChoice === "Scissors") && (computerChoice === "Rock")) {
             computerScore++;
-            console.log("You lose! Rock beats Scissor.");
-        } else if ((humanChoice === "Scissor") && (computerChoice === "Paper")) {
+            console.log("You lose! Rock beats Scissors.");
+        } else if ((humanChoice === "Scissors") && (computerChoice === "Paper")) {
             humanScore++;
-            console.log("You win! Scissor beats Paper.");
+            console.log("You win! Scissors beats Paper.");
         }
         console.log(`Your score: ${humanScore} vs Computer score: ${computerScore}`);
     }
