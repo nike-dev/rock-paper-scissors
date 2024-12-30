@@ -18,6 +18,17 @@ function getComputerChoice() {
     else {
         return "Scissors";
     }
+
+    //Alternative conditional using ternary operator
+    // {
+    //     let computerChoice =
+    //         (getRandom <= 3)
+    //             ? "Rock"
+    //             : (getRandom <= 6)
+    //                 ? "Paper"
+    //                 : "Scissors";
+    //     return computerChoice;
+    // }
 }
 
 //Function to get Human's choice
