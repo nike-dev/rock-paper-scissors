@@ -8,15 +8,16 @@ const startButton = document.getElementById("gamePlay");
 
 //Function to get Computer's choice
 function getComputerChoice() {
-    let choice = Math.random() * 10;
-    if (choice <= 3) {
-        return "Rock";
+    let randomNum = Math.random() * 10;
+    let computerChoice;
+    if (randomNum <= 3) {
+        return computerChoice = "Rock";
     }
-    else if (choice > 3 && choice <= 6) {
-        return "Paper";
+    else if (randomNum > 3 && randomNum <= 6) {
+        return computerChoice = "Paper";
     }
     else {
-        return "Scissors";
+        return computerChoice = "Scissors";
     }
 
     //Alternative conditional using ternary operator
