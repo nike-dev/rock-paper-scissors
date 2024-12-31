@@ -8,7 +8,7 @@ const startButton = document.getElementById("gamePlay");
 
 //Function to get Computer's choice
 function getComputerChoice() {
-    let randomNum = Math.random() * 10;
+    const randomNum = Math.random() * 10;
     let computerChoice;
     if (randomNum <= 3) {
         return computerChoice = "Rock";
@@ -34,7 +34,7 @@ function getComputerChoice() {
 
 //Function to get Human's choice
 function getHumanChoice() {
-    let userInput = prompt("What do you choose?");
+    const userInput = prompt("What do you choose?");
     let choice = userInput.trim();
     choice = choice[0].toUpperCase() + choice.substring(1).toLowerCase();
     return choice;
@@ -53,7 +53,7 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissors" && computerChoice === "Paper")) {
         humanScore++;
-        console.log("You win! ${humanChoice} beats ${computerChoice}.");
+        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
     }
     console.log(`Your score: ${humanScore} vs Computer score: ${computerScore}`);
     console.log("");
