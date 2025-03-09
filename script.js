@@ -54,8 +54,10 @@ function declareWinner() {
      if (humanScore > computerScore) {
         gameTextWindow.innerText += "\nFinal result: User is victorious!!!"
     } else {
-        gameTextWindow.innerText = "\nFinal result: The computer is victorious!!!";
+        gameTextWindow.innerText += "\nFinal result: The computer is victorious!!!";
     }
+    humanScore = 0;
+    computerScore = 0;
 }
 
 
