@@ -48,29 +48,22 @@ function playRound(humanChoice, computerChoice) {
     }
     scoreBoard.innerText = 
     `Human Score : ${humanScore}\nComputer Score : ${computerScore}`;
-    
-
 }
 
 function declareWinner() {
-    if (humanScore === computerScore) {
-        console.log("Final result: Draw!");
-    } else if (humanScore > computerScore) {
-        console.log("Final result: User is victorious!!!")
+     if (humanScore > computerScore) {
+        gameTextWindow.innerText += "\nFinal result: User is victorious!!!"
     } else {
-        console.log("Final result: The computer is victorious!!!")
+        gameTextWindow.innerText = "\nFinal result: The computer is victorious!!!";
     }
 }
 
 
 btnContainer.addEventListener("click", e => {
-    
     const targetNodeName = e.target.nodeName.toLowerCase();
     if (targetNodeName === "button") {
         function getHumanChoice() {
-            const userInput = e.target.value;
-            let choice = userInput.trim();
-            choice = choice[0].toUpperCase() + choice.substring(1).toLowerCase();
+            const choice = e.target.value;
             return choice;
         }
         function getComputerChoice() {
@@ -88,13 +81,11 @@ btnContainer.addEventListener("click", e => {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
+        
+        if (humanScore === 5 || computerScore === 5) declareWinner();
+
     }
-    
-    
-
 });
-
-// Fix scoreboard
 
 
 
