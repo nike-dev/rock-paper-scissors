@@ -2,28 +2,25 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const startButton = document.getElementById("gamePlay");
+const container = document.querySelector(".container");
+const btnContainer = document.createElement("div");
 
-//Function to get Computer's choice
-function getComputerChoice() {
-    const randomNum = Math.random() * 10;
-    let computerChoice;
+const btnRock = document.createElement("button");
+btnRock.innerText = "Play Rock";
+btnRock.value = "Rock";
 
-    computerChoice =
-        (randomNum <= 3)
-            ? "Rock"
-            : (randomNum <= 6)
-                ? "Paper"
-                : "Scissors";
-    return computerChoice;
-}
+const btnPaper = document.createElement("button");
+btnPaper.innerText = "Play Paper";
+btnPaper.value = "Paper";
 
-function getHumanChoice() {
-    const userInput = prompt("What do you choose?");
-    let choice = userInput.trim();
-    choice = choice[0].toUpperCase() + choice.substring(1).toLowerCase();
-    return choice;
-}
+
+const btnScissors = document.createElement("button");
+btnScissors.innerText = "Play Scissors";
+btnScissors.value = "Scissors";
+
+
+btnContainer.append(btnRock, btnPaper, btnScissors);
+container.append(btnContainer);
 
 function playRound(humanChoice, computerChoice) {
 
@@ -54,24 +51,30 @@ function declareWinner() {
     }
 }
 
-//Main game function to play 5 rounds
-function playGame() {
-    for (let i = 0; i < 5; i++) {
 
-        const humanSelection = getHumanChoice();
-        console.log(`You chose ${humanSelection[0].toUpperCase() +
-            humanSelection.substring(1).toLowerCase()}.`);
-        const computerSelection = getComputerChoice();
-        console.log(`Computer chose ${computerSelection}.`);
-
-
-
-        playRound(humanSelection, computerSelection);
+btnContainer.addEventListener("click", e => {
+    function getHumanChoice() {
+        const userInput = e.target.value;
+        let choice = userInput.trim();
+        choice = choice[0].toUpperCase() + choice.substring(1).toLowerCase();
+        return choice;
     }
-    declareWinner();
-}
+    function getComputerChoice() {
+        const randomNum = Math.random() * 10;
+        let computerChoice;
 
-startButton.addEventListener("click", playGame);
+        computerChoice =
+            (randomNum <= 3)
+                ? "Rock"
+                : (randomNum <= 6)
+                    ? "Paper"
+                    : "Scissors";
+        return computerChoice;
+    }
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+});
 
 
 
