@@ -8,18 +8,15 @@ const btnContainer = document.createElement("div");
 const btnRock = document.createElement("button");
 btnRock.innerText = "Play Rock";
 btnRock.value = "Rock";
-btnRock.setAttribute("class", "btn");
 
 const btnPaper = document.createElement("button");
 btnPaper.innerText = "Play Paper";
 btnPaper.value = "Paper";
-btnPaper.setAttribute("class", "btn");
 
 
 const btnScissors = document.createElement("button");
 btnScissors.innerText = "Play Scissors";
 btnScissors.value = "Scissors";
-btnScissors.setAttribute("class", "btn");
 
 const scoreBoard = document.createElement("div");
 const gameTextWindow = document.createElement("div");
