@@ -21,28 +21,35 @@ btnScissors.innerText = "Play Scissors";
 btnScissors.value = "Scissors";
 btnScissors.setAttribute("class", "btn");
 
-
+const scoreBoard = document.createElement("div");
+const gameTextWindow = document.createElement("div");
 
 
 btnContainer.append(btnRock, btnPaper, btnScissors);
-container.append(btnContainer);
+container.append(btnContainer, scoreBoard, gameTextWindow);
+scoreBoard.innerText = `Human Score : 0\nComputer Score : 0`;
+
+
 
 function playRound(humanChoice, computerChoice) {
+    gameTextWindow.innerText = `You choose ${humanChoice} & Computer chose ${computerChoice}.\n`
     if (humanChoice === computerChoice) {
-        console.log("Draw! The round will be replayed.")
+        gameTextWindow.innerText += "It's a Draw!";
     } else if ((humanChoice === "Rock" && computerChoice === "Paper") ||
         (humanChoice === "Paper" && computerChoice === "Scissors") ||
         (humanChoice === "Scissors" && computerChoice === "Rock")) {
         computerScore++;
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+        gameTextWindow.innerText += `You lose! ${computerChoice} beats ${humanChoice}.`;
     } else if ((humanChoice === "Rock" && computerChoice === "Scissors") ||
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissors" && computerChoice === "Paper")) {
         humanScore++;
-        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        gameTextWindow.innerText += `You win! ${humanChoice} beats ${computerChoice}.`;
     }
-    console.log(`Your score: ${humanScore} vs Computer score: ${computerScore}`);
-    console.log("");
+    scoreBoard.innerText = 
+    `Human Score : ${humanScore}\nComputer Score : ${computerScore}`;
+    
+
 }
 
 function declareWinner() {
@@ -57,6 +64,7 @@ function declareWinner() {
 
 
 btnContainer.addEventListener("click", e => {
+    
     const targetNodeName = e.target.nodeName.toLowerCase();
     if (targetNodeName === "button") {
         function getHumanChoice() {
@@ -81,7 +89,12 @@ btnContainer.addEventListener("click", e => {
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
+    
+    
+
 });
+
+// Fix scoreboard
 
 
 
